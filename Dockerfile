@@ -3,7 +3,7 @@ FROM nginx:1.13.9 as dev
 RUN apt-get update && apt-get install \
   openssl=1.1.0f-3+deb9u1
 
-WORKDIR /etc/nginx/ssl
+WORKDIR /run/secrets/
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/CN=localhost" \
   -keyout ./privkey.pem \

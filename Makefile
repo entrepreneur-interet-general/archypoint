@@ -31,7 +31,9 @@ dev: cleanContainer
 prod: cleanContainer
 	sudo docker build \
 		--network=host \
-		--build-arg domain=archifiltre.io \
+		--build-arg domain="localhost" \
+		--build-arg www_pass="127.0.0.1:8000" \
+		--build-arg api_pass="127.0.0.1:3000" \
 		--tag=$(image_name):prod \
 		.
 

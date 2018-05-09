@@ -41,3 +41,9 @@ clean: cleanContainer
 
 cleanContainer:
 	sudo docker container prune -f
+
+hosts: removeHosts
+	echo "127.0.0.1 archifiltre.num.social.gouv.fr #archypoint#" | sudo tee -a /etc/hosts
+
+removeHosts:
+	sudo sed -i -e '/.*#archypoint#.*/d' /etc/hosts
